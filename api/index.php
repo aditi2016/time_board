@@ -7,8 +7,8 @@ require 'Slim/Slim.php';
 
 
 //objects resource
-require_once "resources/objects/saveObject.php";
-require_once "resources/objects/getObject.php";
+require_once "resources/objects/showResult.php";
+require_once "resources/objects/showAllChallanges.php";
 
 //app
 require_once "app.php";

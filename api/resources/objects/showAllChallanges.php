@@ -7,9 +7,11 @@
  */
 
 
-function getObject($app_id,$objectId){
+function showAllChallanges($id){
 
-    $sql = "SELECT * FROM objects WHERE object_id=:id ";
+    $sql = "SELECT user.'user_id', user.'first_name', user.'org_id', c.'challenge_name', c.'descrption_of_challenge', c.'deadline', c.'status'
+FROM user_info AS 'user', 'challagens' AS c
+WHERE c.'status' = 'open'"; 
 
     try {
         $db = getDB();

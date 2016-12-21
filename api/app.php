@@ -19,8 +19,8 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 /* Starting routes */
 
-$app->get('/objects/:app_id/:Id','getObject');
-$app->post('/objects/:app_id/', 'saveObject');
+$app->get('/objects/:id/','showResult');
+$app->get('/objects/:id/', 'showAllChallanges');
 
 /* Ending Routes */
 
