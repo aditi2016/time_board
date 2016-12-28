@@ -19,8 +19,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 
 /* Starting routes */
 
-$app->get('/objects/:id/','showResult');
-$app->get('/objects/:id/', 'showAllChallanges');
+$app->get('/objects/result','showResult');
+$app->get('/objects', 'showAllChallanges');
+/*$app->get('/cities','getAllCities');*/
+
 
 /* Ending Routes */
 
