@@ -1,11 +1,20 @@
 angular.module('starter.services', [])
-    
-    .factory('TimeBoard', function ($http) {
+ .factory('TimeBoard', function ($http) {
         // Might use a resource here that returns a JSON array
 
         var url = "http://loc.api.time-board.shatkonlabs.com";
-        
-        return {
+                 return {
+            getChallengesResult: function () {
+                // $http returns a promise, which has a then function, which also returns a promise
+                var promise = $http.get(url + '/objects/result').then(function (response) {
+                    // The then function here is an opportunity to modify the response
+                    //console.log(response);
+                    // The return value gets picked up by the then in the controller.
+                    return response.data;
+                });
+                // Return the promise to the controller
+                return promise;
+            },
             getUserChallenges: function () {
                 // $http returns a promise, which has a then function, which also returns a promise
                 var promise = $http.get(url + '/objects').then(function (response) {
@@ -16,10 +25,11 @@ angular.module('starter.services', [])
                 });
                 // Return the promise to the controller
                 return promise;
-            }
-        }
+                  }
+        };
     })
-    .factory('BlueTeam', function ($http) {
+        
+ .factory('BlueTeam', function ($http) {
         // Might use a resource here that returns a JSON array
 
         var url = "https://blueteam.in/api";

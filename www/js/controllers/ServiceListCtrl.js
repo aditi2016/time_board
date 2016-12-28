@@ -25,7 +25,25 @@ angular.module('starter.controllers')
                 $scope.services = JSON.parse($localstorage.get('services'));
                 $scope.campaignRequest = {};*/
 
-                function getUserChallenges() {
+function getChallengesResult() {
+                    TimeBoard.getChallengesResult().then(function (d) {
+                            if(d.result[0].user_id) {
+                                console.log(d.result);
+                                $scope.result = d.result;
+                                
+                            } else {
+                               console.log("error"); 
+                            }
+
+                        });
+                }
+                //$scope.campaignRequest.device = $cordovaDevice.getUUID();
+
+                getChallengesResult();
+
+
+
+ function getUserChallenges() {
                     TimeBoard.getUserChallenges().then(function (d) {
                             if(d.challagens_owneship[0].user_id) {
                                 console.log(d.challagens_owneship);
