@@ -5,9 +5,9 @@ function showResult(){
 
 
 
- $sql = "SELECT user.user_id, user.first_name, user.chall_id, c.organization_name , c.challenge_name, c.descrption_of_challenge, c.deadline, c.status
+ $sql = "SELECT user.user_id, user.first_name,  c.organization_name , c.challenge_name
 FROM user_info AS user,challagens AS c
-WHERE c.status = 'closed' AND user.chall_id = c.chall_id"; 
+WHERE c.status = 'closed' AND user.user_id = c.user_id"; 
 
    try {
         $db = getDB();

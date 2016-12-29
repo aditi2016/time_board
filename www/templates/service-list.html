@@ -1,4 +1,4 @@
-<ion-view view-title="<h> Time Board</h>
+<ion-view    view-title="<h> Time Board</h>
 
             <p>Let's give Actually value to your work</p>">
 
@@ -13,17 +13,14 @@
 
 
 <!-- invite other helper code -->
-        <div class="card" style="border-left: 3px solid greenyellow;">
+        <div class="card" style="border-left: 1px solid greenyellow;">
             <div class="item item-text-wrap">
            
 
             <!-- <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p> -->
-
-
-
-        </div>
             </div>
- <div class="card" style="border-left: 3px solid greenyellow;">
+            </div>
+ <div class="card" style="border-left: 4px solid greenyellow;">
             
 
   <h1> <center><p><b>Winner of the Week</b></p></center></h1>
@@ -32,43 +29,29 @@
                 
                 <div class="col"><b>User ID</b></div>
                 <div class="col"><b>Frist Name</b></div>
-                <div class="col"><b>Challenge ID</b></div>
+                   <div class="col"><b>Organization Name</b></div>
+              
                 <div class="col"><b>Challenge Name</b></div>
-                <div class="col"><b>Description</b></div>
-                <div class="col"><b>Deadline</b></div>
-                <div class="col"><b>Status</b></div>
-                 <div class="col"><b>Organization Name</b></div>
-
-            </div>
+              </div>
             <div class="row" ng-repeat="(key , values) in result">
                 <div class="col">{{values.user_id}}</div>
                 <div class="col">{{values.first_name}}</div>
-                <div class="col">{{values.chall_id}}</div>
-                 <div class="col">{{values.challenge_name}}</div>
-                <div class="col">{{values.descrption_of_challenge}}</div>
-                <div class="col">{{values.deadline}}</div>
-                 <div class="col">{{values.status}}</div>
                   <div class="col">{{values.organization_name}}</div>
-
-                
-            </div>
-
-
-
-        </div>
-
-
-  </div>
-            </div>
+               
+                 <div class="col">{{values.challenge_name}}</div>
+                </div>
+           </div>
+           </div>
+         </div>
  <div class="card" style="border-left: 3px solid cornflowerblue;">
 <h2> <center><p><b>Challenges Going On</b></p></center></h2>
 
-    <div class="item " >
+    <div class="item1 " >
             <div class="row header">
                 
                 <div class="col"><b>User ID</b></div>
                 <div class="col"><b>Frist Name</b></div>
-                <div class="col"><b>Challenge ID</b></div>
+                
                 <div class="col"><b>Challenge Name</b></div>
                 <div class="col"><b>Description</b></div>
                 <div class="col"><b>Deadline</b></div>
@@ -79,7 +62,7 @@
             <div class="row" ng-repeat="(key , value) in challanges">
                 <div class="col">{{value.user_id}}</div>
                 <div class="col">{{value.first_name}}</div>
-                <div class="col">{{value.chall_id}}</div>
+              
                  <div class="col">{{value.challenge_name}}</div>
                 <div class="col">{{value.descrption_of_challenge}}</div>
                 <div class="col">{{value.deadline}}</div>
@@ -88,16 +71,8 @@
 
                 
             </div>
-
-
-
-        </div>
-
-
-               
-            
-
-        <div class='card'>
+            </div>
+            <div class='card'>
             <div class="item item-text-wrap">
                 <div style="text-align: center;">
                     <i> For queries and issues
