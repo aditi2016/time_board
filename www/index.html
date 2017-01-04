@@ -13,13 +13,15 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/ionic/js/timer.js"></script>
+    <script src="lib/ionic/js/humanize-duration.js"></script>
+    <script src="lib/ionic/js/moment.js"></script>
 
     <!-- cordova script (this will be a 404 during development)  -->
 
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
 
     <!-- path to ionic/angularjs js -->
-    <script src="lib/ionic-timepicker/dist/templates.js"></script>
     <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
 
     <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
@@ -38,6 +40,7 @@
     <script src="js/controllers/InvoiceCtrl.js"></script>
     <script src="js/controllers/MonthlyIncomeCtrl.js"></script>
     <script src="js/controllers/RegCtrl.js"></script>
+    <script src="js/controllers/AddChallangeCtrl.js"></script>
 
     <script src="js/services.js"></script>
     <script type="text/javascript" >
@@ -83,8 +86,8 @@
                 myService.enableTimer(60000, function(r){registerForUpdates(r)}, function(e){displayError(e)});
             }
         }
+        
 
-       
 
   
     </script>

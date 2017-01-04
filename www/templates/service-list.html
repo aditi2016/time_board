@@ -21,24 +21,21 @@
             </div>
             </div>
  <div class="card" style="border-left: 4px solid greenyellow;">
+    <div class="card" style="border-left: 4px solid blueyellow;">
             
 
-  <h1> <center><p><b>Winner of the Week</b></p></center></h1>
+  <h1> <center><p><b>Winner of the Week</b></p></center></h1><timer />
             <div class="item1" >
-            <div class="row header">
+            <div class="row header" >
                 
-                <div class="col"><b>User ID</b></div>
-                <div class="col"><b>Frist Name</b></div>
-                   <div class="col"><b>Organization Name</b></div>
+                <div class="col"><b>Name</b></div>
+                <div class="col" ><b>Challenge Done</b></div>
+                            </div> 
               
-                <div class="col"><b>Challenge Name</b></div>
-              </div>
             <div class="row" ng-repeat="(key , values) in result">
-                <div class="col">{{values.user_id}}</div>
-                <div class="col">{{values.first_name}}</div>
-                  <div class="col">{{values.organization_name}}</div>
-               
-                 <div class="col">{{values.challenge_name}}</div>
+                <div class="col">{{values.name}}</div>
+                <div class="col">{{values.num}}</div>
+               </div>
                 </div>
            </div>
            </div>
@@ -49,29 +46,43 @@
     <div class="item1 " >
             <div class="row header">
                 
-                <div class="col"><b>User ID</b></div>
-                <div class="col"><b>Frist Name</b></div>
+              
+                <div class="col"><b>Name</b></div>
                 
                 <div class="col"><b>Challenge Name</b></div>
                 <div class="col"><b>Description</b></div>
-                <div class="col"><b>Deadline</b></div>
-                <div class="col"><b>Status</b></div>
-                 <div class="col"><b>Organization Name</b></div>
+              <!--   <div class="col"><b>Status</b></div> -->
+                <!--  <div class="col"><b>Organization Name</b></div> -->
+               <div class="col" ><b>Remaining Time for Complition</b></div> 
+               
 
             </div>
             <div class="row" ng-repeat="(key , value) in challanges">
-                <div class="col">{{value.user_id}}</div>
-                <div class="col">{{value.first_name}}</div>
+               
+                <div class="col">{{value.name}}</div>
               
                  <div class="col">{{value.challenge_name}}</div>
                 <div class="col">{{value.descrption_of_challenge}}</div>
-                <div class="col">{{value.deadline}}</div>
-                 <div class="col">{{value.status}}</div>
-                  <div class="col">{{value.organization_name}}</div>
+                <div class="col"  >
+                    <timer end-time="timeT[$index]">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds</timer>
+                </div>            
+                
 
                 
             </div>
             </div>
+            <div class="fixed-outside">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <button class="button button-circle button-assertive icon ion-plus-circled " style="margin-left: 100px;"  ng-click="registerChallenge()"></button>
+            </div>
+        </div>
+
+
+    </div>
             <div class='card'>
             <div class="item item-text-wrap">
                 <div style="text-align: center;">

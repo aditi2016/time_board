@@ -3,14 +3,15 @@
  */
 angular.module('starter.controllers')
 
-    .controller('ServiceListCtrl',
+    .controller('AddChallangeCtrl',
         [ '$scope', '$state', '$ionicPopup', '$ionicLoading', '$ionicHistory', '$localstorage', '$ionicSlideBoxDelegate', 
         '$cordovaToast','$cordovaDevice','TimeBoard','BlueTeam',
             function ($scope, $state, $ionicPopup, $ionicLoading, $ionicHistory, $localstorage, $ionicSlideBoxDelegate,
              $cordovaToast, $cordovaDevice, TimeBoard, BlueTeam) {
 
                 //JSON.parse()
-$scope.user = {};
+                $scope.user = {};
+                $scope.data = {};
 
                 /*if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
                     $ionicHistory.clearHistory();
@@ -24,62 +25,42 @@ $scope.user = {};
                 $scope.user_id = $localstorage.get('user_id');
                 $scope.services = JSON.parse($localstorage.get('services'));
                 $scope.campaignRequest = {};*/
+             
 
-function registerChallenge() {
-                    TimeBoard.registerChallenge().then(function (d) {
-                            if(d.instance[0].name) {
-                                console.log(d.instance);
-                                $scope.result = d.result;
-                                
-                            } else {
-                               console.log(d); 
-                            }
 
-                        });
-                }
-                //$scope.campaignRequest.device = $cordovaDevice.getUUID();
+        $scope.datetimeValue = new Date();
+        $scope.datetimeValue.setHours(7);
+        $scope.datetimeValue.setMinutes(0);
 
-                //registerChallenge();
+        $scope.data.startTimeSet = false;
+
+        $scope.takeStartTime = function () {
+            console.log($scope.datetimeValue.toString(), $scope.data.drv.toString());
+            $scope.data.startTimeSet = true;
+        };
 
 
 
-
-
-function getChallengesResult() {
-                    TimeBoard.getChallengesResult().then(function (d) {
-                            if(d.result[0].name) {
-                                console.log(d.result);
-                                $scope.result = d.result;
-                                
-                            } else {
-                               console.log(d); 
-                            }
-
-                        });
-                }
-                //$scope.campaignRequest.device = $cordovaDevice.getUUID();
-
-                getChallengesResult();
-$scope.timeT = [];
- function getUserChallenges() {
-                    TimeBoard.getUserChallenges().then(function (d) {
-                            if(d.challagens_owneship[0].name) {
-                                console.log(d.challagens_owneship);
-                                $scope.challanges = d.challagens_owneship;
-                                for(var i=0;i<$scope.challanges.length;i++){
-                                    $scope.timeT[i]=$scope.challanges[i].tm*1;    
-                                }
-                                //$scope.timeT = "1483798400000";
-                                //$scope.clock = initializeClock(2,d.challagens_owneship[0].complation_time)
-                            } else {
-                               console.log("error"); 
-                            }
-
-                        });
-                }
-                //$scope.campaignRequest.device = $cordovaDevice.getUUID();
-
-                getUserChallenges();
+                $scope.addChallenge = function (){
+                    //console.log($scope.search.keywords);
+                    TimeBoard.registerChallenge({
+                        "name": $scope.data.name,
+                        "mobile": "" + $scope.data.mobile,
+                        "email": $scope.data.email,
+                        "challenge_name": $scope.data.challenge_name,
+                        "challenge_name": $scope.data.challenge_name,
+                        "complation_time": $scope.data.complation_time,
+                        "creation_time": $scope.data.creation_time,
+                        "descrption_of_challenge":$scope.data.descrption_of_challenge
+                    }).then(function (d) {
+                        if(d.instance.challange_id) {
+                            $state.go('service-list');    
+                        } else {
+                           alert("error"); 
+                        }
+                        
+                    });
+                };
 
                 $scope.show = function () {
                     $ionicLoading.show({

@@ -5,9 +5,8 @@ function showResult(){
 
 
 
- $sql = "SELECT user.user_id, user.first_name,  c.organization_name , c.challenge_name
-FROM user_info AS user,challagens AS c
-WHERE c.status = 'closed' AND user.user_id = c.user_id"; 
+ $sql = "SELECT name
+, MAX(challenge_done) as num FROM user_info "; 
 
    try {
         $db = getDB();
@@ -21,3 +20,4 @@ WHERE c.status = 'closed' AND user.user_id = c.user_id";
         echo '{"error":{"text":' . $e->getMessage() . '}}';
     }
 }
+

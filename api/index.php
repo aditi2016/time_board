@@ -9,6 +9,7 @@ require 'Slim/Slim.php';
 //objects resource
 require_once "resources/objects/result/showResult.php";
 require_once "resources/objects/showAllChallanges.php";
+require_once "resources/objects/insertChallenge.php";
 
 //app
 require_once "app.php";
