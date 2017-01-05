@@ -34,7 +34,7 @@
               
             <div class="row" ng-repeat="(key , values) in result">
                 <div class="col">{{values.name}}</div>
-                <div class="col">{{values.num}}</div>
+                <div class="col">{{values.challenge_done}}</div>
                </div>
                 </div>
            </div>
@@ -77,7 +77,7 @@
 
             </div>
             <div class="col">
-                <button class="button button-circle button-assertive icon ion-plus-circled " style="margin-left: 100px;"  ng-click="registerChallenge()"></button>
+                <button class="button button-circle button-assertive icon ion-plus-circled "  ng-click="registerChallenge();"></button>
             </div>
         </div>
 

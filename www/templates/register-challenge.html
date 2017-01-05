@@ -1,0 +1,53 @@
+<ion-view view-title="Register Challenge">
+    <ion-content class="padding">
+
+     
+        <form ng-submit="addChallenge()" name="addChallenge-f">
+            <div class="list">
+
+                <label class="item item-input ">
+                    <span class="input-label">Name</span>
+                    <input type="text" name="username" placeholder="enter name" ng-model="data.username" ng-minlength="3"
+                           required/>
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Mobile</span>
+                    <input type="text" name="mobile" placeholder="mobile" ng-model="data.mobile" ng-minlength="10"
+                    ng-maxlength="10" required/>
+                </label>
+
+
+                <label class="item item-input " >
+                    <span class="input-label"> Email</span>
+                    <input type="text" name="email" placeholder="email" ng-model="data.email"
+                           ng-minlength="10" />
+                </label>
+                
+                <label class="item item-input " >
+                    <span class="input-label">challenge_name </span>
+                     <input type="text" name="challengeName" placeholder="challenge_name" ng-model="data.challengeName"
+                     ng-minlength="10" />
+                </label>
+
+                <label class="item item-input" ion-datetime-picker am-pm ng-model="complation_time" disablepreviousdates ng-click="takeStartTime()">
+                    <span class="input-label">complation_time </span>
+                       {{data.drv =complation_time| date: "dd-MM-yyyy h:mm a"}}
+                </label>
+                
+                <label class="item item-input " >
+                    <span class="input-label"> descrption_of_challenge</span>
+                    <input type="text" name="descrption_of_challenge" placeholder="descrption_of_challenge" ng-model="data.descrption_of_challenge"/>
+                </label>
+
+         
+
+                 <input class="button button-block button-calm" type="submit" name="Done" value="Done">
+         
+
+            </div>
+         
+        </form>
+
+    </ion-content>
+</ion-view>

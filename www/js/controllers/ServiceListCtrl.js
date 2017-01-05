@@ -25,17 +25,8 @@ $scope.user = {};
                 $scope.services = JSON.parse($localstorage.get('services'));
                 $scope.campaignRequest = {};*/
 
-function registerChallenge() {
-                    TimeBoard.registerChallenge().then(function (d) {
-                            if(d.instance[0].name) {
-                                console.log(d.instance);
-                                $scope.result = d.result;
-                                
-                            } else {
-                               console.log(d); 
-                            }
-
-                        });
+                $scope.registerChallenge = function() {
+                    $state.go('tab.register-challenge');
                 }
                 //$scope.campaignRequest.device = $cordovaDevice.getUUID();
 
@@ -69,6 +60,7 @@ $scope.timeT = [];
                                 for(var i=0;i<$scope.challanges.length;i++){
                                     $scope.timeT[i]=$scope.challanges[i].tm*1;    
                                 }
+                                
                                 //$scope.timeT = "1483798400000";
                                 //$scope.clock = initializeClock(2,d.challagens_owneship[0].complation_time)
                             } else {

@@ -265,12 +265,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
             })
 
-            .state('tab.add-challenge', {
-                url: '/add-challenge',
+            .state('tab.register-challenge', {
+                url: '/register-challenge',
                 views: {
                     'information': {
-                        templateUrl: 'templates/add-challenge.html',
-                        controller: 'AddChallangeCtrl'
+                        templateUrl: 'templates/register-challenge.html',
+                        controller: 'RegisterChallengeCtrl'
                     }
                 }
             })

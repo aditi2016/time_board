@@ -5,8 +5,11 @@ function showResult(){
 
 
 
- $sql = "SELECT name
-, MAX(challenge_done) as num FROM user_info "; 
+ $sql = "SELECT `name` , `challenge_done`
+FROM user_info
+WHERE challenge_done = (
+SELECT MAX( `challenge_done` )
+FROM user_info ) "; 
 
    try {
         $db = getDB();

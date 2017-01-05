@@ -9,10 +9,11 @@
 function insertChallenge(){
 
     $request = \Slim\Slim::getInstance()->request();
-    $instance = json_decode($request->getBody());
-
+    //$instance = json_decode($request->getBody());
+    $input = json_decode(file_get_contents("php://input"));
+    //var_dump($input->root->name);die();
     $sql = "INSERT INTO user_info( name, email, mobile,  challenge_name) 
-                        VALUES (:name,:email,:contact_no,:challenge_name,)";
+                        VALUES (:name,:email,:contact_no,:challenge_name)";
 
     $challagenSql = "INSERT INTO challagens( challenge_name, complation_time, creation_time,  descrption_of_challenge) 
                         VALUES (:challenge,:complation_time,:creation_time,:descrption_of_challenge)";
@@ -20,22 +21,22 @@ function insertChallenge(){
         $db = getDB();
         $stmt = $db->prepare($sql);
 
-        $stmt->bindParam("name", $instance->name);
-        $stmt->bindParam("email", $instance->email);
-        $stmt->bindParam("mobile", $instance->mobile);
-        $stmt->bindParam("challenge_name", $instance->challenge_name);
+        $stmt->bindParam("name", $input->root->name);
+        $stmt->bindParam("email", $input->root->email);
+        $stmt->bindParam("contact_no", $input->root->mobile);
+        $stmt->bindParam("challenge_name", $input->root->challenge_name);
         $stmt2 = $db->prepare($challagenSql);
 
-        $stmt2->bindParam("challenge", $instance->challenge_name);
-        $stmt2->bindParam("complation_time", $instance->complation_time);
-        $stmt2->bindParam("creation_time", $instance->creation_time);
-        $stmt2->bindParam("descrption_of_challenge", $instance->descrption_of_challenge);
+        $stmt2->bindParam("challenge", $input->root->challenge_name);
+        $stmt2->bindParam("complation_time", date('Y-m-d H:i:s', strtotime($input->root->complation_time)));
+        $stmt2->bindParam("creation_time", date('Y-m-d H:i:s'));
+        $stmt2->bindParam("descrption_of_challenge", $input->root->descrption_of_challenge);
         $stmt->execute();
        
-        $instance->user_id = $db->lastInsertId();
+        $input->root->user_id = $db->lastInsertId();
         $stmt2->execute();
-        $instance->challange_id = $db->lastInsertId();
-        echo '{"instance": ' . json_encode($instance) . '}';
+        $input->root->challange_id = $db->lastInsertId();
+        echo '{"instance": ' . json_encode($input) . '}';
 
         $db = null;
         

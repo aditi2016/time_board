@@ -16,10 +16,9 @@ angular.module('starter.services', [])
                 return promise;
             },
             registerChallenge: function (user) {
-                  console.log(JSON.stringify(user));
                 // $http returns a promise, which has a then function, which also returns a promise
                 var promise = $http.post(url + '/objects',user).then(function (response) {
-                    // console.log(JSON.stringify(response))
+                    console.log(JSON.stringify(response))
                     // The then function here is an opportunity to modify the response
                     //console.log(response);
                     // The return value gets picked up by the then in the controller.
