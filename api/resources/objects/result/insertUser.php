@@ -12,7 +12,7 @@ function insertUser(){
 
     $user_info = json_decode($request->getBody());
 
-    $sql = "INSERT INTO user_info (name, email, mobile, password, gps_location, organization_id)
+    $sql = "INSERT INTO user_info (name, email, password, mobile, gps_location, organization_id)
                   VALUES (:name, :email, :password, :mobile, :location, 2 )";
     try {
         $db = getDB();
