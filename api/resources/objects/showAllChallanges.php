@@ -2,9 +2,13 @@
 
 function showAllChallanges(){
 
- $sql = "SELECT user.name,c.name, c.description , UNIX_TIMESTAMP(c.deadline)  AS tm
-        FROM user_info AS user, challenges AS c , challenges_ownship as a
-        WHERE  a.user_id = user.id AND c.status = 'open'"; 
+ $sql = "SELECT user.name AS username, c.name, c.description, UNIX_TIMESTAMP( c.deadline ) AS tm
+FROM user_info AS user
+JOIN challenges AS c
+JOIN challenges_ownship AS a
+WHERE a.user_id = user.id
+AND a.challenge_id = c.id
+AND c.status = 'open'"; 
 
    try {
         $db = getDB();

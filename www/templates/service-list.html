@@ -59,10 +59,10 @@
             </div>
             <div class="row" ng-repeat="(key , value) in challanges">
                
-                <div class="col">{{value.name}}</div>
+                <div class="col">{{value.username}}</div>
               
-                 <div class="col">{{value.challenge_name}}</div>
-                <div class="col">{{value.descrption_of_challenge}}</div>
+                 <div class="col">{{value.name}}</div>
+                <div class="col">{{value.description}}</div>
                 <div class="col"  >
                     <timer end-time="timeT[$index]">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds</timer>
                 </div>            

@@ -14,7 +14,7 @@ function checkMobile(){
     try {
         $db = getDB();
         $stmt = $db->prepare($sql);
-        $stmt->bindParam("mobile", $users->mobile);
+        $stmt->bindParam("mobile", $_GET['mobile']);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;

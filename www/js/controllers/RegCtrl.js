@@ -71,12 +71,12 @@ angular.module('starter.controllers')
 
         }
         $scope.checkReg = function () {
-         /*   console.log("trying to check")*/;
-            if ($scope.checked == false && $scope.user.mobile != undefined) {
+            console.log("trying to check");
+            if ($scope.checked == false && $scope.user.mobile !== undefined) {
                 $scope.checked = true;
                 TimeBoard.checkMobile($scope.user.mobile)
                     .then(function (d) {
-                        $scope.registered = d.user;
+                        $scope.registered = d.users;
 
                     });
             }
@@ -145,6 +145,7 @@ angular.module('starter.controllers')
                         if(d.error){
                             $scope.error = d.error;
                         }
+                        $state.go('tab.service-list');
                     });
             }
             else

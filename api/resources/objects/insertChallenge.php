@@ -11,31 +11,25 @@ function insertChallenge(){
     $request = \Slim\Slim::getInstance()->request();
     //$instance = json_decode($request->getBody());
     $input = json_decode(file_get_contents("php://input"));
-    //var_dump($input->root->name);die();
-    $sql = "INSERT INTO user_info( name, email, mobile,  challenge_name) 
-                        VALUES (:name,:email,:contact_no,:challenge_name)";
-
-    $challagenSql = "INSERT INTO challagens( challenge_name, complation_time, creation_time,  descrption_of_challenge) 
-                        VALUES (:challenge,:complation_time,:creation_time,:descrption_of_challenge)";
+    //var_dump($input->root);die();
+    $sql = "INSERT INTO challenges( name, deadline, creation_time,  description) 
+                        VALUES (:name,:deadline,:creation_time,:description)";
+    $ownshipSql = "INSERT INTO challenges_ownship (user_id, challenge_id) 
+                        VALUES (:user_id, :challenge_id)";                    
     try {
         $db = getDB();
         $stmt = $db->prepare($sql);
-
         $stmt->bindParam("name", $input->root->name);
-        $stmt->bindParam("email", $input->root->email);
-        $stmt->bindParam("contact_no", $input->root->mobile);
-        $stmt->bindParam("challenge_name", $input->root->challenge_name);
-        $stmt2 = $db->prepare($challagenSql);
-
-        $stmt2->bindParam("challenge", $input->root->challenge_name);
-        $stmt2->bindParam("complation_time", date('Y-m-d H:i:s', strtotime($input->root->complation_time)));
-        $stmt2->bindParam("creation_time", date('Y-m-d H:i:s'));
-        $stmt2->bindParam("descrption_of_challenge", $input->root->descrption_of_challenge);
+        $stmt->bindParam("deadline", date('Y-m-d H:i:s', strtotime($input->root->deadline)));
+        $stmt->bindParam("creation_time", date('Y-m-d H:i:s'));
+        $stmt->bindParam("description", $input->root->description);
         $stmt->execute();
-       
-        $input->root->user_id = $db->lastInsertId();
+        $input->root->challenge_id = $db->lastInsertId();
+        $stmt2 = $db->prepare($ownshipSql);
+        $stmt2->bindParam("user_id", $input->root->user_id);
+        $stmt2->bindParam("challenge_id", $input->root->challenge_id);
         $stmt2->execute();
-        $input->root->challange_id = $db->lastInsertId();
+        $input->root->ownship_id = $db->lastInsertId();
         echo '{"instance": ' . json_encode($input) . '}';
 
         $db = null;

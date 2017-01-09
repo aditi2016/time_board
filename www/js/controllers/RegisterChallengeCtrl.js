@@ -3,7 +3,7 @@
  */
 angular.module('starter.controllers')
 
-    .controller('RegisterChallengeCtrl',  function ($scope, $state, $ionicLoading, TimeBoard ) {
+    .controller('RegisterChallengeCtrl',  function ($scope, $state, $ionicLoading, TimeBoard ,$localstorage) {
 
            if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
             $ionicHistory.clearHistory();
@@ -48,18 +48,16 @@ angular.module('starter.controllers')
 
                 $scope.addChallenge = function (){
                     var challenge = {"root" :
-                                                    { "name": $scope.data.username,
-                                                        "mobile": $scope.data.mobile, 
-                                                        "email": $scope.data.email,
-                                                        "challenge_name":$scope.data.challengeName,
-                                                        "complation_time":$scope.data.drv,
-                                                        "descrption_of_challenge":$scope.data.descrption_of_challenge 
+                                                    { "name": $scope.data.challengeName,
+                                                        "deadline":$scope.data.drv,
+                                                        "description":$scope.data.descrption_of_challenge,
+                                                        "user_id": $scope.user_id
                                                     }
                                                 } ;
                     console.log(challenge);
                     TimeBoard.registerChallenge(challenge).then(function (d) 
                                                         {
-                                                            if(d.root.challange_id) {
+                                                            if(d.instance.root.challenge_id) {
                                                                 $state.go('tab.service-list');    
                                                             } else {
                                                                alert("error"); 

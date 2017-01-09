@@ -19,9 +19,9 @@ function checkMobile(){
         $users = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         if(count($users) == 1)
-            echo '{"user": "true"}';
+            echo '{"users": "true"}';
         else
-            echo '{"user": "false"}';
+            echo '{"users": "false"}';
 
     } catch (PDOException $e) {
         echo '{"error":{"text":' . $e->getMessage() . '}}';
