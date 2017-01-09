@@ -22,7 +22,10 @@ $app->response->headers->set('Content-Type', 'application/json');
 $app->get('/objects/result','showResult');
 $app->get('/objects', 'showAllChallanges');
 $app->post('/objects','insertChallenge' );
-/*$app->get('/cities','getAllCities');*/
+$app->post('/objects/result','insertUser' );
+$app->post('/auth','userAuth' );
+$app->get('/user','checkMobile' );
+/*$app->get('/cities','getAllCities')/
 
 
 /* Ending Routes */

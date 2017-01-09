@@ -50,15 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 
             })
-            .state('survey', {
-                url: '/survey',
-
-
-                templateUrl: 'survey.html',
-                controller: 'SurveyCtrl'
-
-
-            })
+  
 
             .state('tab.contact-us', {
 
@@ -71,43 +63,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
 
             })
-
-            .state('tab.digieye', {
-
-                url: '/digieye',
+                   .state('tab.register-challenge', {
+                url: '/register-challenge',
                 views: {
-                    'service-list': {
-                        templateUrl: 'templates/digieye.html',
-                        controller: 'DigieyeCtrl'
+                    'information': {
+                        templateUrl: 'templates/register-challenge.html',
+                        controller: 'RegisterChallengeCtrl'
                     }
                 }
-
             })
 
-            .state('tab.register-worker', {
 
-                url: '/register-worker',
-                views: {
-                    'service-list': {
-                        templateUrl: 'templates/register-worker.html',
-                        controller: 'DigieyeCtrl'
-                    }
-                }
-
-            })
-
-            .state('tab.view-workers', {
-
-                url: '/view-workers',
-                views: {
-                    'service-list': {
-                        templateUrl: 'templates/view-workers.html',
-                        controller: 'VWCtrl'
-                    }
-                }
-
-            })
-
+            
             .state('tab.service-list', {
                 url: '/service-list',
                 views: {
@@ -137,26 +104,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
-            .state('tab.price_cal', {
-                url: '/price_cal',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/price-cal.html',
-                        controller: 'PriceCalCtrl'
-                    }
-                }
-            })
-
-            .state('tab.feedback', {
-                url: '/feedback',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/feedback.html',
-                        controller: 'FeedbackCtrl'
-                    }
-                }
-            })
-
+            
             .state('tab.t&c', {
                 url: '/t&c',
                 views: {
@@ -167,44 +115,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
-            .state('tab.take-payment', {
-                url: '/take-payment',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/take-payment.html',
-                        controller: 'TakePaymentCtrl'
-                    }
-                }
-            })
-            .state('tab.service-requests', {
-                url: '/service-requests',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/service-requests.html',
-                        controller: 'ServiceRequestCtrl'
-                    }
-                }
-            })
-
-            .state('tab.worker-timer', { //8588824759
-                url: '/worker-timer',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/worker-timer.html',
-                        controller: 'WorkerTimerCtrl'
-                    }
-                }
-            })
-
-            .state('tab.service-type', {
-                url: '/service-list/:id',
-                views: {
-                    'service-type': {
-                        templateUrl: 'templates/service-type.html',
-                        controller: 'ServiceTypeCtrl'
-                    }
-                }
-            })
+            
+   
 
             .state('tab.blueteam_verified', {
                 url: '/blueteam_verified',
@@ -246,65 +158,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                 }
             })
 
-            .state('tab.invoice', {
-                url: '/invoice',
-                views: {
-                    'book': {
-                        templateUrl: 'templates/invoice.html',
-                        controller: 'InvoiceCtrl'
-                    }
-                }
-            })
-
-            .state('finish', {
-                url: '/finish',
-
-                templateUrl: 'finish.html',
-                controller: 'FinishCtrl'
-
-
-            })
-
-            .state('tab.register-challenge', {
-                url: '/register-challenge',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/register-challenge.html',
-                        controller: 'RegisterChallengeCtrl'
-                    }
-                }
-            })
-
-            .state('tab.addvender', {
-                url: '/addvender',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/add-vender.html',
-                        controller: 'AddWorkerCtrl'
-                    }
-                }
-            })
-
-            .state('tab.seerequest', {
-                url: '/seerequest',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/see-request.html',
-                        controller: 'SeeRequestCtrl'
-                    }
-                }
-            })
-
-            .state('tab.monthly-income', {
-                url: '/monthly_income',
-                views: {
-                    'information': {
-                        templateUrl: 'templates/monthly-income.html',
-                        controller: 'MonthlyIncomeCtrl'
-                    }
-                }
-            })
-
+            
         ;
 
         // if none of the above states are matched, use this as the fallback

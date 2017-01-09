@@ -2,11 +2,9 @@
 
 function showAllChallanges(){
 
- $sql = "SELECT  user.name,  c.challenge_name, c.descrption_of_challenge, c.chall_id , UNIX_TIMESTAMP(c.complation_time)  AS tm
-                      FROM user_info AS user                       
-                      INNER JOIN challagens AS c
-
-                        WHERE  user.challenge_name = c.challenge_name AND c.status = 'open'"; 
+ $sql = "SELECT user.name,c.name, c.description , UNIX_TIMESTAMP(c.deadline)  AS tm
+        FROM user_info AS user, challenges AS c , challenges_ownship as a
+        WHERE  a.user_id = user.id AND c.status = 'open'"; 
 
    try {
         $db = getDB();

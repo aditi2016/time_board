@@ -1,0 +1,106 @@
+<ion-view    view-title="<h> Time Board</h>
+
+            <p>Let's give Actually value to your work</p>">
+
+    <ion-content has-header="true" class="padding" style="
+    overflow-y: hidden ! important;
+        overflow-x: hidden ! important;
+    background-image: url('./img/homepage.jpg');
+    background-size:     contain;                      /* <------ */
+    background-repeat: no-repeat;
+        background-position: top;
+    margin-top: -50px">
+
+
+<!-- invite other helper code -->
+        <div class="card" style="border-left: 1px solid greenyellow;">
+            <div class="item item-text-wrap">
+           
+
+            <!-- <p>Quality Score: {{ serviceProviderQuilityScore }}/{{ serviceProviderQuilityScoreTotal }} ({{ serviceProviderQuilityScore/serviceProviderQuilityScoreTotal*100 | limitTo: 4}} %)</p> -->
+            </div>
+            </div>
+ <div class="card" style="border-left: 4px solid greenyellow;">
+    <div class="card" style="border-left: 4px solid blueyellow;">
+            
+
+  <h1> <center><p><b>Winner of the Week</b></p></center></h1><timer />
+            <div class="item1" >
+            <div class="row header" >
+                
+                <div class="col"><b>Name</b></div>
+                <div class="col" ><b>Challenge Done</b></div>
+                            </div> 
+              
+            <div class="row" ng-repeat="(key , values) in result">
+                <div class="col">{{values.name}}</div>
+                <div class="col">{{values.challenge_done}}</div>
+               </div>
+                </div>
+           </div>
+           </div>
+         </div>
+ <div class="card" style="border-left: 3px solid cornflowerblue;">
+<h2> <center><p><b>Challenges Going On</b></p></center></h2>
+
+    <div class="item1 " >
+            <div class="row header">
+                
+              
+                <div class="col"><b>Name</b></div>
+                
+                <div class="col"><b>Challenge Name</b></div>
+                <div class="col"><b>Description</b></div>
+              <!--   <div class="col"><b>Status</b></div> -->
+                <!--  <div class="col"><b>Organization Name</b></div> -->
+               <div class="col" ><b>Remaining Time for Complition</b></div> 
+               
+
+            </div>
+            <div class="row" ng-repeat="(key , value) in challanges">
+               
+                <div class="col">{{value.name}}</div>
+              
+                 <div class="col">{{value.challenge_name}}</div>
+                <div class="col">{{value.descrption_of_challenge}}</div>
+                <div class="col"  >
+                    <timer end-time="timeT[$index]">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds</timer>
+                </div>            
+                
+
+                
+            </div>
+            </div>
+            <div class="fixed-outside">
+        <div class="row">
+            <div class="col">
+
+            </div>
+            <div class="col">
+                <button class="button button-circle button-assertive icon ion-plus-circled "  ng-click="registerChallenge();"></button>
+            </div>
+        </div>
+
+
+    </div>
+            <div class='card'>
+            <div class="item item-text-wrap">
+                <div style="text-align: center;">
+                    <i> For queries and issues
+                    </i>
+                    <div class="button-bar">
+                        <a class="button button-small button-full ion-ios7-telephone ion-android-call"
+                           ng-href="tel: +91 9599075355"> Call</a>
+                        <a class="button button-small button-full ion-email"
+                           onclick="window.open('mailto:info@blueteam.in','_system')"> Email</a>
+                        <a class="button button-small button-full ion-cloud"
+                           onclick="window.open('http://www.BlueTeam.in','_system')"> Web</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

@@ -1,7 +1,7 @@
 {
-  "name": "blueteam partner",
+  "name": "Time Board",
   "version": "0.0.1",
-  "description": "blueteam: Partners Project",
+  "description": "Time Board Project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

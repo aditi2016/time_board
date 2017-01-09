@@ -278,13 +278,19 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ionic-timepicker',
                     "root": {
                         "name": $scope.data.name,
                         "mobile": "" + $scope.data.mobile,
-                        "email": $scope.data.email,
-                        "challenge_name": $scope.data.challenge_name,
-                        "challenge_done": $scope.data.challenge_done,
-                        "challenge_name": $scope.data.challenge_name,
-                        "complation_time": $scope.data.complation_time,
-                        "creation_time": $scope.data.creation_time,
-                        "descrption_of_challenge":$scope.data.descrption_of_challenge
+                        "location": $scope.position.coords.latitude + ',' + $scope.position.coords.longitude,
+                        "requirements": $scope.service,
+                        "user_id": $localstorage.get('user_id'),
+                        "user_type": $localstorage.get('type'),
+                        "start_datatime": $scope.data.drv + "",
+                        "service_type": $scope.type,
+                        "remarks": $scope.type + " by mobile app," + $scope.data.remark,
+                        "start_time": $scope.data.startTime,
+                        "end_time": $scope.data.endTime,
+                        "address": $scope.data.address,
+                        "remark": $scope.data.remark,
+                        "priority": "" + 3,
+                        "device_id": $cordovaDevice.getUUID()
                     }
                 })
                 .then(function (d) {

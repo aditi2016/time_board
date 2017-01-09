@@ -1,4 +1,8 @@
-
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
 <ion-side-menus enable-menu-with-back-views="false">
     <ion-side-menu-content>
         <ion-nav-bar class="bar-calm">
@@ -56,7 +60,10 @@
                     Home
                 </ion-item>
 
-              
+                <ion-item menu-close class="item item-icon-left" href="#/tab/monthly_income" >
+                    <span class="icon ion-eye large calm"></span>
+                    Montly Income
+                </ion-item>
 
                 <!--
                 <ion-item menu-close class="item item-icon-left" href="#/tab/seerequest" ng-show="cem">
@@ -111,10 +118,6 @@
                     <span class="icon ion-navigate large calm"></span>
                     Share
                 </ion-item>
-                <ion-item menu-close class="item item-icon-left" href="#/tab/register-challenge">
-                    <span class="icon ion-plus large calm"></span>
-                    Add Challenge
-                </ion-item>
 
 
                 <ion-item menu-close class="item item-icon-left" href="#/tab/contact-us">
@@ -123,15 +126,15 @@
 
                 </ion-item>
 
-                <ion-item menu-close class="item item-icon-left" href="#/tab/feedback" ng-show="customer">
+                <!--<ion-item menu-close class="item item-icon-left" href="#/tab/feedback" ng-show="customer">
                     <span class="icon ion-log-in large calm"></span>
                     Feedback
                 </ion-item>
 
-              <ion-item menu-close class="item item-icon-left" href="#/tab/F&Q">
+                <ion-item menu-close class="item item-icon-left" href="#/tab/F&Q">
                     <span class="icon ion-help large calm"></span>
                     F.A.Qs
-                </ion-item>
+                </ion-item>-->
 
                 <ion-item menu-close class="item item-icon-left" href="#/tab/about">
                     <span class="icon ion-information-circled large calm"></span>
