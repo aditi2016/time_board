@@ -3,6 +3,7 @@ angular.module('starter.services', [])
         // Might use a resource here that returns a JSON array
 
         var url = "http://api.timeboard.shatkonlabs.com";
+        
        
         return {
             getChallengesResult: function () {
@@ -58,7 +59,7 @@ angular.module('starter.services', [])
 
                 var promise = $http.post(url + '/auth', data).then(function (response) {
                     // The then function here is an opportunity to modify the response
-                    console.log(JSON.stringify(response.data));
+                /*    console.log(JSON.stringify(response.data));*/
                     // The return value gets picked up by the then in the controller.
                     return response.data;
                 });
@@ -68,8 +69,8 @@ angular.module('starter.services', [])
             checkMobile:function (mobile) {
                 var promise = $http.get(url + '/user?mobile=' + mobile).then(function (response) {
                     // The then function here is an opportunity to modify the response
-                    console.log(response.data);
-                    // The return value gets picked up by the then in the controller.
+                  /*  console.log(response.data);
+*/                    // The return value gets picked up by the then in the controller.
                     return response.data;
                 });
                 // Return the promise to the controller

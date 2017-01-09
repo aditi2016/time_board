@@ -76,8 +76,8 @@ angular.module('starter.controllers')
                 $scope.checked = true;
                 TimeBoard.checkMobile($scope.user.mobile)
                     .then(function (d) {
-                        $scope.registered = d.users;
-
+                        if(d.users == "false") $scope.registered = false;    
+                        else $scope.registered = true;
                     });
             }
             /*else $scope.data.password = "";*/
