@@ -21,11 +21,15 @@
             </div>
             </div>
  <div class="card" style="border-left: 4px solid greenyellow;">
-    <div class="card" style="border-left: 4px solid blueyellow;">
+     <div style="text-align: center;"><img ng-src="img/winner.png" class="img-rounded" style="max-width: 7%;" >
+                 
+                </div>
+
+ <!--    <div class="card" style="border-left: 4px solid blueyellow;"> -->
             
 
-  <h1> <center><p><b>Winner of the Week</b></p></center></h1><timer />
-            <div class="item1" >
+  <h1> <center  style="font-family: 'Pacifico', cursive;" ><p>Winner of the Week</p></center></h1>
+            <div class="item1"  >
             <div class="row header" >
                 
                 <div class="col"><b>Name</b></div>
@@ -40,44 +44,38 @@
            </div>
            </div>
          </div>
- <div class="card" style="border-left: 3px solid cornflowerblue;">
-<h2> <center><p><b>Challenges Going On</b></p></center></h2>
 
-    <div class="item1 " >
-            <div class="row header">
+                      <div class="card" style= "border-left: 3px solid cornflowerblue;">
+                      <div style="text-align: center;"><img ng-src="img/on.png" class="img-rounded" style="max-width: 15%;" ></div>
+
+                      <h2  > <center style="font-family: 'Pacifico', cursive;"  >  <p> Challenges Going On</p></center></h2>
+
+                      <div class="item1">
+                      <div class="row header" >
                 
               
                 <div class="col"><b>Name</b></div>
-                
                 <div class="col"><b>Challenge Name</b></div>
                 <div class="col"><b>Description</b></div>
-              <!--   <div class="col"><b>Status</b></div> -->
-                <!--  <div class="col"><b>Organization Name</b></div> -->
-               <div class="col" ><b>Remaining Time for Complition</b></div> 
-               
+                <div class="col" ><b>Remaining Time for Complition</b></div> 
+               </div>
 
-            </div>
-            <div class="row" ng-repeat="(key , value) in challanges">
-               
+                <div class="row" style=" font-style: italic;" ng-repeat="(key , value) in challanges">
                 <div class="col">{{value.username}}</div>
-              
-                 <div class="col">{{value.name}}</div>
+                <div class="col">{{value.name}}</div>
                 <div class="col">{{value.description}}</div>
                 <div class="col"  >
                     <timer end-time="timeT[$index]">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds</timer>
                 </div>            
-                
-
-                
-            </div>
-            </div>
+                </div>
+                </div>
             <div class="fixed-outside">
-        <div class="row">
+            <div class="row">
             <div class="col">
 
             </div>
             <div class="col">
-                <button class="button button-circle button-assertive icon ion-plus-circled "  ng-click="registerChallenge();"></button>
+                <button class="button icon ion-plus-circled" color:"blue";  ng-click="registerChallenge();"></button>
             </div>
         </div>
 

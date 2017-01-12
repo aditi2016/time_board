@@ -2,7 +2,7 @@ angular.module('starter.services', [])
     .factory('TimeBoard', function ($http) {
         // Might use a resource here that returns a JSON array
 
-        var url = "http://api.timeboard.shatkonlabs.com";
+        var url = "http://loc.api.time-board.shatkonlabs.com";
         
        
         return {

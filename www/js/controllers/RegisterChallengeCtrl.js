@@ -17,6 +17,8 @@ angular.module('starter.controllers')
              //JSON.parse()
                 $scope.user = {};
                 $scope.data = {};
+                $scope.data.hours = "";
+                $scope.data.minutes = "";
 
                 /*if ($localstorage.get('user_id') === undefined || $localstorage.get('user_id') === "") {
                     $ionicHistory.clearHistory();
@@ -36,6 +38,9 @@ angular.module('starter.controllers')
         $scope.complation_time = new Date();
         $scope.complation_time.setHours(7);
         $scope.complation_time.setMinutes(0);
+
+
+      
 
         $scope.data.startTimeSet = false;
 
